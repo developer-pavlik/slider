@@ -75,13 +75,22 @@
 
     })
     $(".prev").on('click', function(){
-        if(lZone >= cZone){
-            var dx = $(".content").width()+20;
-            cDx-=dx;
-            $(".wrapper").animate({'margin-left': -cDx+"px"}, 1000);
-            lZone-=cZone;
-            rZone+=cZone;
-            console.log(lZone, cZone, rZone);
+        if(lZone >= cZone){          
+            if(lZone-cZone == 2 && elementCount%2 == 1){
+                var dx = $(".content").width()+20;
+                cDx-=dx+240;
+                $(".wrapper").animate({'margin-left': -cDx+"px"}, 1000);
+                lZone-=cZone+2;
+                rZone+=cZone+2;
+                console.log(lZone, cZone, rZone, "Вар1");
+            }else{
+                var dx = $(".content").width()+20;
+                cDx-=dx;
+                $(".wrapper").animate({'margin-left': -cDx+"px"}, 1000);
+                lZone-=cZone;
+                rZone+=cZone;
+                console.log(lZone, cZone, rZone, "Вар2");
+            } 
         }else{
             dx=lZone/2*240;
             cDx-=dx;
